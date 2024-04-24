@@ -1,0 +1,19 @@
+module GreenPark
+typeinfo appGreenPark.qmltypes
+prefer :/GreenPark/
+Main 1.0 Main.qml
+ApplicationFlow 1.0 ApplicationFlow.qml
+ApplicationFlowForm 1.0 ApplicationFlowForm.ui.qml
+Home 1.0 Home.qml
+CustomButton 1.0 CustomButton.qml
+SelectObject 1.0 SelectObject.qml
+Card 1.0 Card.qml
+MainPage 1.0 MainPage.qml
+Book 1.0 Book.qml
+ConnectionPage 1.0 ConnectionPage.qml
+NumbersPage 1.0 NumbersPage.qml
+ServicesPage 1.0 ServicesPage.qml
+SettingsPage 1.0 SettingsPage.qml
+HomePage 1.0 HomePage.qml
+ReviewsPage 1.0 ReviewsPage.qml
+
