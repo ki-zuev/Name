@@ -36,7 +36,7 @@ Column {
                 radius: 8
                 Image {
                         anchors.fill: parent
-                        fillMode: Image.PreserveAspectFit
+                        fillMode: Image.PreserveAspectCrop
                         source: if (oName === "Green Park") {"./images/park.png"}
                                 else if (oName === "Green bussines") {"./images/bussines.png"}
                                 else if (oName === "Green solncevo") {"./images/solncevo.png"}

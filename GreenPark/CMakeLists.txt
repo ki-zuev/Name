@@ -25,15 +25,16 @@ qt_add_qml_module(appGreenPark
         QML_FILES Card.qml
         RESOURCES images/bussines.png images/log.png images/park.png images/solncevo.png
         QML_FILES MainPage.qml
-        RESOURCES images/arrow.png
         RESOURCES images/house.png
         QML_FILES Book.qml
         QML_FILES ConnectionPage.qml
         QML_FILES NumbersPage.qml
         QML_FILES ServicesPage.qml
         QML_FILES SettingsPage.qml
-        QML_FILES HomePage.qml
         QML_FILES ReviewsPage.qml
+        RESOURCES images/mountains.png
+        RESOURCES numbers/11.png numbers/12.png
+        RESOURCES images/arrowl.png images/arrowr.png
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

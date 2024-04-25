@@ -16,6 +16,7 @@ Item {
             id: image
             Layout.preferredHeight: home.height
             Layout.preferredWidth: home.width
+            fillMode: Image.PreserveAspectFit
             source: "./images/log.png"
         }
 
@@ -23,6 +24,7 @@ Item {
             id: getStartedButton
             anchors.fill: parent
             buttonColor: "green"
+            buttonScale: 1
             z: -1
         }
     }

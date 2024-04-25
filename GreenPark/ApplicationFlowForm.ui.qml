@@ -4,7 +4,7 @@ import QtQuick.Controls
 
 Rectangle {
     id: root
-    property string previousState: ""
+    //property string previousState: ""
     property string oName: ""
     property alias home: home
     property alias select: select
@@ -12,7 +12,6 @@ Rectangle {
     property alias book: book
     property alias stack: stack
 
-    property alias homepage: homepage
     property alias numberspage: numberspage
     property alias connectionpage: connectionpage
     property alias reviewspage: reviewspage
@@ -84,12 +83,6 @@ Rectangle {
         }
     }
 
-    Component {
-        id: homepage
-        HomePage {
-            state: applicationFlow.mode
-        }
-    }
     Component {
         id: numberspage
         NumbersPage {

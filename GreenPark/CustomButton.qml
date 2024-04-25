@@ -7,10 +7,11 @@ AbstractButton {
     property string buttonText: ""
     property bool showIcon: true
     property string buttonColor: ""
+    property double buttonScale: 0.9
 
     states: State {
         name: "pressed"; when: button.pressed
-        PropertyChanges { target: rectangle; scale: 0.9 }
+        PropertyChanges { target: rectangle; scale: buttonScale }
     }
 
     transitions: Transition {

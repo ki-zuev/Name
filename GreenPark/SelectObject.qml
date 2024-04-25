@@ -12,7 +12,6 @@ Item {
     property alias greenpark: greenpark
     property alias greenbussines: greenbussines
     property alias greensolncevo: greensolncevo
-    property alias backButton: backButton
 
     //Object
     Flickable {
@@ -60,16 +59,6 @@ Item {
                     oName: "Green solncevo"
                     button.onClicked: applicationFlow.greensolncevo()
                 }
-
-            }
-            CustomButton {
-                id: backButton
-                width: 40
-                height: 40
-                anchors.top: parent.top
-                anchors.right: parent.right
-                buttonColor: "black"
-                onClicked: applicationFlow.backButton()
             }
         }
         ScrollIndicator.vertical: ScrollIndicator {}

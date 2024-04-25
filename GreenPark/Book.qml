@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.15
 
 Item {
     id: books
-    property alias backButton: backButton
+    //property alias backButton: backButton
     property alias findButton: findButton
 
     property var model: {
@@ -179,12 +179,141 @@ Item {
         ScrollIndicator.vertical: ScrollIndicator {}
     }
 
-    CustomButton {
-        id: backButton
-        width: 40
-        height: 40
-        anchors.right: parent.right
-        buttonColor: "black"
-        onClicked: applicationFlow.backButton()
+    ToolBar {
+        id: toolbar
+        width: parent.width
+
+        Drawer {
+            id: drawer
+            width: 100
+            height: parent.height
+            edge: Qt.LeftEdge
+            visible: false
+
+            ListView {
+                anchors.fill: parent
+
+                CustomButton {
+                    id: homepage
+                    width: 90
+                    height: 50
+                    anchors.top: parent.top
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.margins: 10
+                    buttonColor: "white"
+                    buttonText: "Главная"
+                    onClicked: {
+                        applicationFlow.homeButton();
+                        drawer.visible = false;
+                    }
+                }
+                CustomButton {
+                    id: numberspage
+                    width: 90
+                    height: 50
+                    anchors.top: homepage.bottom
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.margins: 10
+                    buttonColor: "white"
+                    buttonText: "Номера"
+                    onClicked: {
+                        applicationFlow.numbersButton();
+                        drawer.visible = false;
+                    }
+                }
+                CustomButton {
+                    id: connectionpage
+                    width: 90
+                    height: 50
+                    anchors.top: numberspage.bottom
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.margins: 10
+                    buttonColor: "white"
+                    buttonText: "Связь"
+                    onClicked: {
+                        applicationFlow.connectionButton();
+                        drawer.visible = false;
+                    }
+                }
+                CustomButton {
+                    id: reviewspage
+                    width: 90
+                    height: 50
+                    anchors.top: connectionpage.bottom
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.margins: 10
+                    buttonColor: "white"
+                    buttonText: "Отзывы"
+                    onClicked: {
+                        applicationFlow.reviewsButton();
+                        drawer.visible = false;
+                    }
+                }
+                CustomButton {
+                    id: servicespage
+                    width: 90
+                    height: 50
+                    anchors.top: reviewspage.bottom
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.margins: 10
+                    buttonColor: "white"
+                    buttonText: "Услуги"
+                    onClicked: {
+                        applicationFlow.servicesButton();
+                        drawer.visible = false;
+                    }
+                }
+                CustomButton {
+                    id: settingspage
+                    width: 90
+                    height: 50
+                    anchors.bottom: parent.bottom
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.margins: 10
+                    buttonColor: "white"
+                    buttonText: "Settings"
+                    onClicked: {
+                        applicationFlow.settingsButton();
+                        drawer.visible = false;
+                    }
+                }
+            }
+        }
+
+        RowLayout {
+            anchors.fill: parent
+
+            ToolButton {
+                text: "X"
+                anchors.left: parent.left
+                onClicked: {
+                    drawer.visible = !drawer.visible
+                }
+            }
+
+            Label {
+                text: "Green Park"
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                anchors.centerIn: parent
+            }
+
+            // CustomButton {
+            //     id: backButton
+            //     width: 40
+            //     height: 40
+            //     anchors.right: parent.right
+            //     buttonColor: "black"
+            //     onClicked: applicationFlow.backButton()
+            // }
+        }
     }
+
+    // CustomButton {
+    //     id: backButton
+    //     width: 40
+    //     height: 40
+    //     anchors.right: parent.right
+    //     buttonColor: "black"
+    //     onClicked: applicationFlow.backButton()
+    // }
 }

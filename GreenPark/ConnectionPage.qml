@@ -16,7 +16,6 @@ Item {
 
     Flickable {
         id: flickable
-        visible: showFlickable
         anchors.fill: parent
 
         contentHeight: pane.height
@@ -28,69 +27,68 @@ Item {
                 color: "white"
             }
 
-            Image {
-                id: image
-                width: pane.availableWidth
-                height: pane.availableHeight/(2*4)
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.top: parent.top
-                fillMode: Image.PreserveAspectFit
-                source: "./images/house.png"
-            }
-
             Column {
                 id: column
                 spacing: 40
                 width: parent.width
-                anchors.top: image.bottom
+                anchors.top: parent.top
 
                 Label {
                     id: label1
                     width: parent.width
+                    anchors.top: parent.top
+                    anchors.margins: 40
                     wrapMode: Label.Wrap
+                    color: "black"
                     horizontalAlignment: Qt.AlignHCenter
-                    text: qsTr("Сеть
+                    text: qsTr("Связь
 
 ")
                     font.weight: Font.Bold
                     font.pixelSize: 19
+                }
+
+                Image {
+                    id: image
+                    width: pane.availableWidth
+                    height: pane.availableHeight/(2*4)
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: label1.bottom
+                    fillMode: Image.PreserveAspectFit
+                    source: "./images/mountains.png"
                 }
 
                 Label {
                     id: label2
                     width: parent.width
+                    anchors.top: image.bottom
                     wrapMode: Label.Wrap
+                    color: "black"
                     horizontalAlignment: Qt.AlignHCenter
-                    text: qsTr("—
+                    text: qsTr("Москва, Ботаническая улица, 33Вс1
 
 ")
-                    font.pixelSize: 15
-                    anchors.top: label1.bottom
+                    font.weight: Font.Bold
+                    font.pixelSize: 19
                 }
 
                 Label {
                     id: label3
                     width: parent.width
-                    wrapMode: Label.Wrap
-                    horizontalAlignment: Qt.AlignHCenter
-                    text: qsTr("Москва
-
-")
-                    font.pixelSize: 19
-                    font.weight: Font.Bold
                     anchors.top: label2.bottom
-                }
-
-                Label {
-                    id: label4
-                    width: parent.width
                     wrapMode: Label.Wrap
                     horizontalAlignment: Qt.AlignHCenter
-                    text: qsTr("Фактический
+                    color: "black"
+                    text: qsTr("Фактический адрес: Ботаническая улица, 33Вс1, Москва, 127276.
+Электронная почта: info@greenpark.moscow.
+Телефон: +7 (495) 151 - 54 - 91
+
+Реквизиты:
+ИП Рожкова Юлия Сергеевна
+ИНН 425300572107
 
 ")
                     font.pixelSize: 15
-                    anchors.top: label3.bottom
                 }
             }
         }
@@ -111,6 +109,20 @@ Item {
             ListView {
                 anchors.fill: parent
 
+                CustomButton {
+                    id: backButton
+                    width: 90
+                    height: 50
+                    anchors.top: parent.top
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.margins: 10
+                    buttonColor: "white"
+                    buttonText: "Объект"
+                    onClicked: {
+                        applicationFlow.backButton()
+                        drawer.visible = false;
+                    }
+                }
                 CustomButton {
                     id: homepage
                     width: 90
@@ -213,15 +225,6 @@ Item {
                 text: "Green Park"
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 anchors.centerIn: parent
-            }
-
-            CustomButton {
-                id: backButton
-                width: 40
-                height: 40
-                anchors.right: parent.right
-                buttonColor: "black"
-                onClicked: applicationFlow.backButton()
             }
         }
     }

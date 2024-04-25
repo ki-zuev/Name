@@ -16,7 +16,6 @@ Item {
 
     Flickable {
         id: flickable
-        visible: showFlickable
         anchors.fill: parent
 
         contentHeight: pane.height
@@ -47,8 +46,11 @@ Item {
                 Label {
                     id: label1
                     width: parent.width
+                    anchors.top: iamge.bottom
+                    anchors.margins: 40
                     wrapMode: Label.Wrap
                     horizontalAlignment: Qt.AlignHCenter
+                    color: "black"
                     text: qsTr("Сеть апартаментов Green Park
 
 ")
@@ -61,6 +63,7 @@ Item {
                     width: parent.width
                     wrapMode: Label.Wrap
                     horizontalAlignment: Qt.AlignHCenter
+                    color: "black"
                     text: qsTr("— это выбор тех кто ценит уют, комфорт.
     Для тех кто, кто ценит время и не готов тратить его больше для того, чтобы добраться в любую точку столицы,
     Для тех, кто ищет идеальное сочетание цены и качества.
@@ -83,6 +86,7 @@ Item {
                     width: parent.width
                     wrapMode: Label.Wrap
                     horizontalAlignment: Qt.AlignHCenter
+                    color: "black"
                     text: qsTr("Москва, Ботаническая улица, 33Вс1
 
 ")
@@ -96,6 +100,7 @@ Item {
                     width: parent.width
                     wrapMode: Label.Wrap
                     horizontalAlignment: Qt.AlignHCenter
+                    color: "black"
                     text: qsTr("Фактический адрес: Ботаническая улица, 33Вс1, Москва, 127276.
 Электронная почта: info@greenpark.moscow.
 Телефон: +7 (495) 151 - 54 - 91
@@ -128,10 +133,24 @@ Item {
                 anchors.fill: parent
 
                 CustomButton {
-                    id: homepage
+                    id: backButton
                     width: 90
                     height: 50
                     anchors.top: parent.top
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.margins: 10
+                    buttonColor: "white"
+                    buttonText: "Объект"
+                    onClicked: {
+                        applicationFlow.backButton()
+                        drawer.visible = false;
+                    }
+                }
+                CustomButton {
+                    id: homepage
+                    width: 90
+                    height: 50
+                    anchors.top: backButton.bottom
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.margins: 10
                     buttonColor: "white"
@@ -231,14 +250,15 @@ Item {
                 anchors.centerIn: parent
             }
 
-            CustomButton {
-                id: backButton
-                width: 40
-                height: 40
-                anchors.right: parent.right
-                buttonColor: "black"
-                onClicked: applicationFlow.backButton()
-            }
+            // очень важная кнопка не удалять
+            // CustomButton {
+            //     id: backButton
+            //     width: 40
+            //     height: 40
+            //     anchors.right: parent.right
+            //     buttonColor: "black"
+            //     onClicked: applicationFlow.backButton()
+            // }
         }
     }
 

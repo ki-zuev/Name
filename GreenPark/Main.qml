@@ -4,7 +4,7 @@ import QtQuick.Controls
 ApplicationWindow {
     visible: true
     width: 400
-    height: 800
+    height: 650
     title: qsTr("GreenPark")
 
     ApplicationFlow {

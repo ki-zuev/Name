@@ -8,26 +8,22 @@ ApplicationFlowForm {
 
     //button
     function greenpark() {
-        applicationFlow.previousState = "Select"
         applicationFlow.state = "MainPage"
         applicationFlow.oName = "Green Park"
         stack.push(mainpage)
     }
     function greenbussines() {
-        applicationFlow.previousState = "Select"
         applicationFlow.state = "MainPage"
         applicationFlow.oName = "Green bussines"
         stack.push(mainpage)
     }
     function greensolncevo() {
-        applicationFlow.previousState = "Select"
         applicationFlow.state = "MainPage"
         applicationFlow.oName = "Green solncevo"
         stack.push(mainpage)
     }
     //start
     home.getStartedbutton.onClicked: {
-        applicationFlow.previousState = "Home"
         applicationFlow.state = "Select"
         stack.push(select)
     }
@@ -42,33 +38,43 @@ ApplicationFlowForm {
             stack.pop()
             stack.pop()
         }
-        //applicationFlow.state = applicationFlow.previousState
         applicationFlow.state = "Select"
     }
     //continueButton
     function continueButton() {
         stack.push(book)
-        applicationFlow.previousState = "MainPage"
         applicationFlow.state = "Book"
     }
     //function for homepage, numberspage, connectionpage, reviewspage, servicespage, settingspage
     function homeButton() {
-        if (applicationFlow.state === "MainPage")
+        if (applicationFlow.state === "Book")
         {
-            //stack.push(homepage)
+            stack.pop()
+            stack.pop()
+            stack.push(mainpage)
+            applicationFlow.state = "MainPage"
+        }
+        else if (applicationFlow.state === "MainPage")
+        {
             applicationFlow.state = "MainPage"
         }
         else
         {
             stack.pop()
-            stack.push(homepage)
-            applicationFlow.state = "HomePage"
+            stack.push(mainpage)
+            applicationFlow.state = "MainPage"
         }
     }
     function numbersButton() {
-        if (applicationFlow.state === "MainPage")
+        if (applicationFlow.state === "Book")
         {
+            stack.pop()
+            stack.pop()
             stack.push(numberspage)
+            applicationFlow.state = "NumbersPage"
+        }
+        else if (applicationFlow.state === "NumbersPage")
+        {
             applicationFlow.state = "NumbersPage"
         }
         else
@@ -79,9 +85,15 @@ ApplicationFlowForm {
         }
     }
     function connectionButton() {
-        if (applicationFlow.state == "MainPage")
+        if (applicationFlow.state === "Book")
         {
+            stack.pop()
+            stack.pop()
             stack.push(connectionpage)
+            applicationFlow.state = "ConnectionPage"
+        }
+        else if (applicationFlow.state === "ConnectionPage")
+        {
             applicationFlow.state = "ConnectionPage"
         }
         else
@@ -92,9 +104,15 @@ ApplicationFlowForm {
         }
     }
     function reviewsButton() {
-        if (applicationFlow.state == "MainPage")
+        if (applicationFlow.state === "Book")
         {
+            stack.pop()
+            stack.pop()
             stack.push(reviewspage)
+            applicationFlow.state = "ReviewsPage"
+        }
+        else if (applicationFlow.state === "ReviewsPage")
+        {
             applicationFlow.state = "ReviewsPage"
         }
         else
@@ -105,9 +123,15 @@ ApplicationFlowForm {
         }
     }
     function servicesButton() {
-        if (applicationFlow.state == "MainPage")
+        if (applicationFlow.state === "Book")
         {
+            stack.pop()
+            stack.pop()
             stack.push(servicespage)
+            applicationFlow.state = "ServicesPage"
+        }
+        else if (applicationFlow.state === "ServicesPage")
+        {
             applicationFlow.state = "ServicesPage"
         }
         else
@@ -118,9 +142,15 @@ ApplicationFlowForm {
         }
     }
     function settingsButton() {
-        if (applicationFlow.state == "MainPage")
+        if (applicationFlow.state === "Book")
         {
+            stack.pop()
+            stack.pop()
             stack.push(settingspage)
+            applicationFlow.state = "SettingsPage"
+        }
+        else if (applicationFlow.state === "SettingsPage")
+        {
             applicationFlow.state = "SettingsPage"
         }
         else
