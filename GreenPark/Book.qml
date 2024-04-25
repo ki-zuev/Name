@@ -1,11 +1,12 @@
+pragma ComponentBehavior: Bound
 import QtQuick
 import QtQuick.Controls
+import QtWebView
 import QtQuick.Layouts 1.15
 
 Item {
     id: books
-    //property alias backButton: backButton
-    property alias findButton: findButton
+    //property alias findButton: findButton
 
     property var model: {
             startDate: ""
@@ -28,7 +29,25 @@ Item {
                 color: "white"
             }
 
-            Column {
+            WebView {
+                id: page
+                url:  "https://greenpark.moscow/"
+                onLoadingChanged: {
+                    var main_script = `
+                    var elementToKeep = document.getElementById("rec690529776");
+                    var allElements = document.querySelectorAll("*");
+                    for (var i = 0; i < allElements.length; i++) {
+                        var element = allElements[i];
+                        if (element != elementToKeep && !elementToKeep?.contains(element) && !element.contains(elementToKeep)) {
+                            element.style.display = "none";
+                        }
+                    }
+                    `
+                    page.runJavaScript(main_script);
+                }
+            }
+
+            /*Column {
                 id: column
                 spacing: 40
                 width: parent.width
@@ -174,7 +193,7 @@ Item {
                     buttonText: "Найти"
                     onClicked: applicationFlow.backButton()
                 }
-            }
+            }*/
         }
         ScrollIndicator.vertical: ScrollIndicator {}
     }
@@ -296,24 +315,6 @@ Item {
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 anchors.centerIn: parent
             }
-
-            // CustomButton {
-            //     id: backButton
-            //     width: 40
-            //     height: 40
-            //     anchors.right: parent.right
-            //     buttonColor: "black"
-            //     onClicked: applicationFlow.backButton()
-            // }
         }
     }
-
-    // CustomButton {
-    //     id: backButton
-    //     width: 40
-    //     height: 40
-    //     anchors.right: parent.right
-    //     buttonColor: "black"
-    //     onClicked: applicationFlow.backButton()
-    // }
 }
