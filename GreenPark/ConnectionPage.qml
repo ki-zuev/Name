@@ -11,7 +11,6 @@ Item {
     property alias numberspage: numberspage
     property alias connectionpage: connectionpage
     property alias reviewspage: reviewspage
-    property alias servicespage: servicespage
     property alias settingspage: settingspage
 
     Flickable {
@@ -127,7 +126,7 @@ Item {
                     id: homepage
                     width: 90
                     height: 50
-                    anchors.top: parent.top
+                    anchors.top: backButton.bottom
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.margins: 10
                     buttonColor: "white"
@@ -176,20 +175,6 @@ Item {
                     buttonText: "Отзывы"
                     onClicked: {
                         applicationFlow.reviewsButton();
-                        drawer.visible = false;
-                    }
-                }
-                CustomButton {
-                    id: servicespage
-                    width: 90
-                    height: 50
-                    anchors.top: reviewspage.bottom
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.margins: 10
-                    buttonColor: "white"
-                    buttonText: "Услуги"
-                    onClicked: {
-                        applicationFlow.servicesButton();
                         drawer.visible = false;
                     }
                 }

@@ -29,7 +29,6 @@ qt_add_qml_module(appGreenPark
         QML_FILES Book.qml
         QML_FILES ConnectionPage.qml
         QML_FILES NumbersPage.qml
-        QML_FILES ServicesPage.qml
         QML_FILES SettingsPage.qml
         QML_FILES ReviewsPage.qml
         RESOURCES images/mountains.png

@@ -213,10 +213,24 @@ Item {
                 anchors.fill: parent
 
                 CustomButton {
-                    id: homepage
+                    id: backButton
                     width: 90
                     height: 50
                     anchors.top: parent.top
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.margins: 10
+                    buttonColor: "white"
+                    buttonText: "Объект"
+                    onClicked: {
+                        applicationFlow.backButton()
+                        drawer.visible = false;
+                    }
+                }
+                CustomButton {
+                    id: homepage
+                    width: 90
+                    height: 50
+                    anchors.top: backButton.bottom
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.margins: 10
                     buttonColor: "white"
@@ -265,20 +279,6 @@ Item {
                     buttonText: "Отзывы"
                     onClicked: {
                         applicationFlow.reviewsButton();
-                        drawer.visible = false;
-                    }
-                }
-                CustomButton {
-                    id: servicespage
-                    width: 90
-                    height: 50
-                    anchors.top: reviewspage.bottom
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.margins: 10
-                    buttonColor: "white"
-                    buttonText: "Услуги"
-                    onClicked: {
-                        applicationFlow.servicesButton();
                         drawer.visible = false;
                     }
                 }

@@ -29,15 +29,16 @@ ApplicationFlowForm {
     }
     //backButton
     function backButton() {
-        if (applicationFlow.state === "MainPage")
+        if (applicationFlow.state === "Book")
         {
+            stack.pop()
             stack.pop()
         }
         else
         {
             stack.pop()
-            stack.pop()
         }
+
         applicationFlow.state = "Select"
     }
     //continueButton
@@ -120,25 +121,6 @@ ApplicationFlowForm {
             stack.pop()
             stack.push(reviewspage)
             applicationFlow.state = "ReviewsPage"
-        }
-    }
-    function servicesButton() {
-        if (applicationFlow.state === "Book")
-        {
-            stack.pop()
-            stack.pop()
-            stack.push(servicespage)
-            applicationFlow.state = "ServicesPage"
-        }
-        else if (applicationFlow.state === "ServicesPage")
-        {
-            applicationFlow.state = "ServicesPage"
-        }
-        else
-        {
-            stack.pop()
-            stack.push(servicespage)
-            applicationFlow.state = "ServicesPage"
         }
     }
     function settingsButton() {

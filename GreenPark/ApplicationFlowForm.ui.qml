@@ -15,7 +15,6 @@ Rectangle {
     property alias numberspage: numberspage
     property alias connectionpage: connectionpage
     property alias reviewspage: reviewspage
-    property alias servicespage: servicespage
     property alias settingspage: settingspage
 
     StackView {
@@ -98,12 +97,6 @@ Rectangle {
     Component {
         id: reviewspage
         ReviewsPage {
-            state: applicationFlow.mode
-        }
-    }
-    Component {
-        id: servicespage
-        ServicesPage {
             state: applicationFlow.mode
         }
     }
