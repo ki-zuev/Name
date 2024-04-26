@@ -12,6 +12,9 @@ qt_add_executable(appGreenPark
     main.cpp
 )
 
+find_package(Qt6 REQUIRED COMPONENTS WebView)
+target_link_libraries(appGreenPark PRIVATE Qt6::WebView)
+
 qt_add_qml_module(appGreenPark
     URI GreenPark
     VERSION 1.0

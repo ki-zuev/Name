@@ -32,7 +32,9 @@ Item {
             WebView {
                 id: page
                 url:  "https://greenpark.moscow/"
-                onLoadingChanged: {
+                anchors.fill: parent
+                onLoadingChanged:
+                {
                     var main_script = `
                     var elementToKeep = document.getElementById("rec690529776");
                     var allElements = document.querySelectorAll("*");
@@ -44,6 +46,10 @@ Item {
                     }
                     `
                     page.runJavaScript(main_script);
+                }
+                PinchArea
+                {
+                    pinch.target: PinchArea.None
                 }
             }
 
